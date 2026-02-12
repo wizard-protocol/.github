@@ -5,80 +5,38 @@
 <h1 align="center">wizard</h1>
 
 <p align="center">
-  <strong>Peer-to-peer decentralized exchange on Cardano</strong>
-</p>
-
-<p align="center">
-  Trustless token swaps · No batchers · No intermediaries
+  <strong>Trade tokens on Cardano. Directly. Trustlessly.</strong>
 </p>
 
 ---
 
-### What is Wizard?
+### The Problem
 
-Wizard is a P2P DEX protocol on [Cardano](https://cardano.org) that lets users trade tokens directly with each other — no centralized order matching, no batchers, no middlemen.
+Decentralized exchanges on Cardano still rely on centralized components — batchers that sequence transactions, operators that extract value, and intermediaries that add latency and trust assumptions to what should be a trustless system.
 
-You place an order. Someone fills it. The smart contract enforces the trade. That's it.
+### The Vision
 
-### ✨ Features
+Wizard removes the middleman entirely. It's a **peer-to-peer DEX protocol** where every trade is a direct swap between two parties, enforced purely by on-chain smart contracts.
 
-- **🔒 Trustless** — All trades enforced on-chain. No custody risk.
-- **💱 Limit Orders** — Set your price, walk away. Orders live on-chain until filled or cancelled.
-- **📊 Oracle Pricing** — Auto-limit orders that track market price with configurable premium/discount and floor protection.
-- **🔗 Composable** — Native integration with Minswap and other Cardano DEX protocols.
-- **⚡ Partial Fills** — Orders can be partially filled, maximizing liquidity.
-- **🛡️ Secure** — Double-satisfaction prevention, output index uniqueness, and flexible multisig authorization.
+No batchers. No operators. No MEV extraction. Just math.
 
-### How It Works
+### How Wizard Works
 
-```
-  ┌──────────┐                        ┌──────────┐
-  │  Maker   │ ─── create order ────► │ Wizard   │
-  │          │                        │ Validator │
-  └──────────┘                        └────┬─────┘
-                                           │
-  ┌──────────┐      fill order             │
-  │  Taker   │ ◄───── trustless swap ──────┘
-  │          │
-  └──────────┘
-```
+- **You set a price** — Place a limit order on-chain with your terms
+- **Someone takes it** — A counterparty fills your order (fully or partially)
+- **The contract settles** — Both sides get exactly what was agreed, or the transaction fails
+- **You stay in control** — Only you can cancel your order and reclaim your funds
 
-1. **Create** — Lock tokens in the Wizard validator with your price
-2. **Fill** — A taker submits a transaction satisfying the price condition
-3. **Settle** — The validator ensures both parties get exactly what's owed
-4. **Cancel** — Only the owner can withdraw unfilled funds
+Orders can track oracle prices automatically with floor protection, or use simple fixed pricing. Your choice.
 
-### Pricing Modes
+### Why It Matters
 
-| Mode | How it works |
-|------|-------------|
-| **Fixed Price** | Static limit order — *"I want X tokens for Y tokens"* |
-| **Auto Limit** | Oracle-tracked price with premium/discount and minimum floor protection |
+Wizard brings true peer-to-peer trading to Cardano — the kind of trustless exchange that DeFi was always supposed to enable. It composes natively with existing protocols like Minswap, turning isolated liquidity into a connected network.
 
-### Architecture
-
-```
-Wizard.Web  →  Wizard.API  →  Wizard.Sync  (chain indexer)
-                            →  Wizard.Tx    (transaction builder)
-```
-
-| Component | Stack | Purpose |
-|-----------|-------|---------|
-| **Validator** | Aiken | On-chain smart contract |
-| **Wizard.Sync** | .NET | Chain indexer with rollback support |
-| **Wizard.API** | .NET | Backend serving indexed data |
-| **Wizard.Tx** | .NET / Chrysalis | Cardano transaction builder |
-| **Wizard.Web** | Next.js | Trading interface |
-
-### Repositories
-
-| Repo | Description |
-|------|-------------|
-| [**Wizard.Offchain**](https://github.com/wizard-protocol/Wizard.Offchain) | Off-chain stack — indexer, API, tx builder, frontend |
-| [**P2P**](https://github.com/wizard-protocol/P2P) | On-chain validators (Aiken) |
+**Built with [Aiken](https://aiken-lang.org)** — clean, auditable smart contracts. ~200 lines of validator logic. Small attack surface. No unnecessary complexity.
 
 ---
 
 <p align="center">
-  Built by <a href="https://github.com/SAIB-Inc">SAIB</a> · Cardano 💜
+  Built by <a href="https://github.com/SAIB-Inc">SAIB</a> 💜
 </p>
