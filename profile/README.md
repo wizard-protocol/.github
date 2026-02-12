@@ -1,4 +1,4 @@
-## <img src="assets/wizard-hat.svg" alt="" width="28" /> wizard — Trade tokens on Cardano. Directly. Trustlessly.
+## <img src="assets/wizard-hat.svg" alt="" width="28" /> wizard — Peer-to-peer liquidity on Cardano
 
 ### The Problem
 
@@ -6,7 +6,7 @@ Decentralized exchanges on Cardano still rely on centralized components — batc
 
 ### The Vision
 
-Wizard removes the middleman entirely. It's a **peer-to-peer DEX protocol** where every trade is a direct swap between two parties, enforced purely by on-chain smart contracts.
+Wizard removes the middleman entirely. It's a **peer-to-peer liquidity protocol** where every trade is a direct swap between two parties, enforced purely by on-chain smart contracts.
 
 No batchers. No operators. No MEV extraction. Just math.
 
@@ -21,10 +21,6 @@ Orders can track oracle prices automatically with floor protection, or use simpl
 
 ### Why It Matters
 
-Wizard brings true peer-to-peer trading to Cardano — the kind of trustless exchange that DeFi was always supposed to enable. It composes natively with existing protocols like Minswap, turning isolated liquidity into a connected network.
+Wizard brings a trustless peer-to-peer liquidity layer to Cardano. It composes natively with existing protocols like Minswap, turning isolated liquidity into a connected network — not competing with DEXes, but making them more powerful.
 
 **Built with [Aiken](https://aiken-lang.org)** — clean, auditable smart contracts. ~200 lines of validator logic. Small attack surface. No unnecessary complexity.
-
----
-
-<p align="center">Built by <a href="https://github.com/SAIB-Inc">SAIB</a> 💜</p>
