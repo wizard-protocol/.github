@@ -1,26 +1,36 @@
-## <img src="assets/wizard-hat.svg" alt="" width="28" /> wizard — Peer-to-peer liquidity on Cardano
+## <img src="assets/wizard-hat.svg" alt="" width="28" /> wizard — Composable liquidity infrastructure for Cardano
 
 ### The Problem
 
-Decentralized exchanges on Cardano still rely on centralized components — batchers that sequence transactions, operators that extract value, and intermediaries that add latency and trust assumptions to what should be a trustless system.
+AMMs on Cardano mandate shared liquidity pools — dual-token deposits, impermanent loss, fragmented liquidity across isolated pools, and limited options for market makers who want fine-grained control over their capital.
 
-### The Vision
+### What Wizard Does
 
-Wizard removes the middleman entirely. It's a **peer-to-peer liquidity protocol** where every trade is a direct swap between two parties, enforced purely by on-chain smart contracts.
+Wizard is a **P2P global orderbook** that sits alongside AMM DEXes and aggregators as composable liquidity infrastructure. Instead of pooling funds with strangers, you deploy your own automated strategies — non-custodial, on-chain, and fully configurable.
 
-No batchers. No operators. No MEV extraction. Just math.
+**Auto-Limit Orders** — Orders that automatically track market price via oracle feeds. Set a premium (distance from mid-price), and your order updates itself. No manual repricing, no extra transaction fees.
 
-### How Wizard Works
+**Automated Market Making** — Deploy single-side or two-way strategies with auto-compounding and inventory management. Grid-based order placement for multi-level positioning across price ranges.
 
-- **You set a price** — Place a limit order on-chain with your terms
-- **Someone takes it** — A counterparty fills your order (fully or partially)
-- **The contract settles** — Both sides get exactly what was agreed, or the transaction fails
-- **You stay in control** — Only you can cancel your order and reclaim your funds
+**Strategy Marketplace** — Create, list, and monetize your market making strategies. Others subscribe and deploy them on their own capital — non-custodial, always.
 
-Orders can track oracle prices automatically with floor protection, or use simple fixed pricing. Your choice.
+### How It Works
+
+```
+You deposit tokens
+  → Configure strategy (premiums, grid levels, allocation)
+    → Orders auto-update with market price
+      → Fills compound back into new orders
+        → Your capital works while you sleep
+```
+
+- **One-Way** — Buy-only accumulation or sell-only distribution
+- **Two-Way** — Balanced bid/ask market making around mid-price
+- **Stablecoin MM** — Automated arbitrage between pegged stablecoins
+- **Custom Grids** — Multi-level orders with per-level inventory allocation
 
 ### Why It Matters
 
-Wizard brings a trustless peer-to-peer liquidity layer to Cardano. It composes natively with existing protocols like Minswap, turning isolated liquidity into a connected network — not competing with DEXes, but making them more powerful.
+Wizard doesn't compete with DEXes — it **feeds them**. Every strategy populates a global orderbook with liquid, composable limit orders that aggregators and other protocols can route through. More strategies → deeper orderbook → better prices for everyone.
 
-**Built with [Aiken](https://aiken-lang.org)** — clean, auditable smart contracts. ~200 lines of validator logic. Small attack surface. No unnecessary complexity.
+**Built with [Aiken](https://aiken-lang.org)** — clean, auditable smart contracts. Small attack surface. No unnecessary complexity.
