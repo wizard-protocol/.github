@@ -1,14 +1,4 @@
-<p align="center">
-  <img src="assets/wizard-hat.svg" alt="Wizard" width="80" />
-</p>
-
-<h1 align="center">wizard</h1>
-
-<p align="center">
-  <strong>Trade tokens on Cardano. Directly. Trustlessly.</strong>
-</p>
-
----
+## <img src="assets/wizard-hat.svg" alt="" width="28" /> wizard — Trade tokens on Cardano. Directly. Trustlessly.
 
 ### The Problem
 
@@ -37,6 +27,4 @@ Wizard brings true peer-to-peer trading to Cardano — the kind of trustless exc
 
 ---
 
-<p align="center">
-  Built by <a href="https://github.com/SAIB-Inc">SAIB</a> 💜
-</p>
+<p align="center">Built by <a href="https://github.com/SAIB-Inc">SAIB</a> 💜</p>
